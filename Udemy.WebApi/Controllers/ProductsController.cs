@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient.DataClassification;
@@ -23,6 +24,7 @@ namespace Udemy.WebApi.Controllers
             _productRepository = productRepository;
         }
 
+        [Authorize]
         [HttpGet]
         //public async Task<List<Product>> GetAll() --> statüs kodlardan önce
         public async Task<IActionResult> GetAll()
